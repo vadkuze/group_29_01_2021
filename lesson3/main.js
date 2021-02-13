@@ -99,9 +99,6 @@
 
 // let name = prompt('Your name');
 
-
-
-
 // while(NaN) 
 
 // console.log(showFullName('John', 'White'));
@@ -114,6 +111,3 @@
 // let sum = function (a, b) {
 //     return a + b;
 // }
-
-
-// console.log(sum(10, 20));
