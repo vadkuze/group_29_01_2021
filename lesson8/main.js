@@ -102,3 +102,25 @@
 //     }
 // }
 
+// function bind(fn, context) {
+//    return function(...args) {
+//        return fn.apply(context, args)
+//    }
+// }
+
+// let calc = {a: 40, b: 10};
+
+// function sub(c, reverse) {
+//     return !reverse ? this.a - this.b - c : c - this.b - this.a;
+// }
+
+// // let boundFn = sub.bind(calc);
+
+// let subBound = bind(sub, calc) // ваша функция;
+
+// let res = subBound(12, true); // передаем аргументы для sub
+// console.log(res, subBound(100, false)); // -38
+
+// let everyBound = bind([].every, 'TEST' )
+// console.log(everyBound( s => s === s.toUpperCase()));
+// console.log(everyBound( s => s === s.toLowerCase()));

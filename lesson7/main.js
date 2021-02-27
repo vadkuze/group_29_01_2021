@@ -42,13 +42,13 @@
 // // // function showAll(...args){
 // // //     console.log(args.join(' - '));
 // // // }
-// // function showAll(){
-// //     console.log(arguments);
-// //     // console.log([].join.call(arguments, ' - '));
-// //     let args = [].slice.call(arguments);
-// //     args.push('new value');
-// //     console.log(args.join(' - '));
-// // }
+// function showAll(){
+//     console.log(arguments);
+//     // console.log([].join.call(arguments, ' - '));
+//     let args = [].slice.call(arguments);
+//     args.push('new value');
+//     console.log(args.join(' - '));
+// }
 
 // // showAll(1, 'test-2', false, 10);
 
@@ -92,7 +92,7 @@
 //     name: 'Joe',
 // }
 
-// // let sayHi = user.sayHi.bind(user);
+// // let sayHi = user.sayHi.bind(user2);
 // setTimeout(user.goWork, 1000 );
 
 // // setTimeout( function() {
