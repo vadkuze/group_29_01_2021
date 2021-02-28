@@ -16,28 +16,38 @@
 // console.log(david);
 // console.log(frank);
 // console.dir(User);
-// function User(name, age) {
-//     // this = {};
-//     // this.__proto__ = User.prototype;
-//     this.name = name;
-//     this.age = age;
-//     // return this;
-// }
+function User(name, age) {
+    // this = {};
+    // this.__proto__ = User.prototype;
+    this.name = name;
+    this.age = age;
+    // return this;
+}
 
-// User.prototype.work = function() {
-//     console.log(this.name + ' is working');
-// }
+ // static method
+User.createOriginUser = function() {
+    return new User('', null);
+}
 
-// User.prototype.department = 'IT Kharkov';
+User.location = 'ru';
 
-// let david = new User('david', 30);
-// let frank = new david.constructor('frank', 25);
+User.prototype.work = function() {
+    console.log(this.name + ' is working');
+}
 
-// david.work();
-// frank.work();
+User.prototype.department = 'IT Kharkov';
 
-// console.log(david.department);
-// console.log(frank.department);
+console.dir(User)
+
+let david = new User('david', 30);
+let frank = new david.constructor('frank', 25);
+let emptyUser = User.createOriginUser()
+david.work();
+frank.work();
+
+console.log(david.department);
+console.log(frank.department);
+console.log(emptyUser);
 
 // if(frank instanceof Object) {
 //     console.log(true);
@@ -55,40 +65,40 @@
 // }
 
 
-// // console.log([].__proto__.__proto__.__proto__);
-// // console.dir(function(){}.__proto__);
+// console.log([].__proto__.__proto__.__proto__);
+// console.dir(function(){}.__proto__);
 
-function Box(h, w, material) {
-    this.height = h;
-    this.weight = w;
-    this.material = material;
-    this.isExpanded = false;
-}
+// function Box(h, w, material) {
+//     this.height = h;
+//     this.weight = w;
+//     this.material = material;
+//     this.isExpanded = false;
+// }
 
-Box.prototype.expand = function() {
-    console.log('expanded box with ' + this.material);
-    this.isExpanded = true
-}
+// Box.prototype.expand = function() {
+//     console.log('expanded box with ' + this.material);
+//     this.isExpanded = true
+// }
 
-Box.prototype.changeBoxAsSquare = function(value) {
-    if(this.isExpanded) {
-        this.height = this.weight = value;
-    } else {
-        throw Error("Box isn't expanded");
-    }
-}
+// Box.prototype.changeBoxAsSquare = function(value) {
+//     if(this.isExpanded) {
+//         this.height = this.weight = value;
+//     } else {
+//         throw Error("Box isn't expanded");
+//     }
+// }
 
-let box = new Box(100, 200, 'wood');
-let box2 = new Box(10, 40, 'plastic');
+// let box = new Box(100, 200, 'wood');
+// let box2 = new Box(10, 40, 'plastic');
 
-console.log(box);
-console.log(box2);
-// открыть коробку
-box.expand();
+// console.log(box);
+// console.log(box2);
+// // открыть коробку
+// box.expand();
 
-box.changeBoxAsSquare(100);
-console.log(box);
+// box.changeBoxAsSquare(100);
+// console.log(box);
 
-box2.changeBoxAsSquare(100);
-console.log(box.isExpanded);
-console.log(box2.isExpanded);
+// box2.changeBoxAsSquare(100);
+// console.log(box.isExpanded);
+// console.log(box2.isExpanded);
