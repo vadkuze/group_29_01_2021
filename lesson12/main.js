@@ -50,7 +50,7 @@ console.dir(
 let collection = document.getElementsByClassName('paragraph');
 console.log(collection);
 
-let span = document.querySelector('.span');
+let span = document.querySelector('span');
 let ps = document.querySelectorAll('.paragraph');
 
 let chapter = document.querySelector('.chapter'); // LI

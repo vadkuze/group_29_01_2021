@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button {
+            border-radius: 5px;
+            width: 70px;
+            height: 30px;
+            outline: none;
+        }
+
+        .active {
+            border: 2px solid red;
+            background-color: green;
+            color:  #ffffff;
+        }
+        
+        .bold {
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+    </style>
+    <script defer src="./main.js"></script>
+</head>
+
+<body>
+
+    <div id="container">
+        Paragraph
+        <p class="paragraph bold" data-count="1" data-name="test" style="color: red;">Text</p>
+    </div>
+
+    <button class="button active">
+        Click
+    </button>
+</body>
+
+</html>
