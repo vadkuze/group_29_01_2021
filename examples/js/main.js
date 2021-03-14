@@ -54,13 +54,29 @@ class Designer extends Human {
 }
 
 class StoreService {
-    constructor(container, initialValue = []) {
-        this.HTMLContainer = container;
+    constructor(initialValue = []) {
         this.store = initialValue;
     }
 
+    addToStore(item){
+        this.store.push(item);
+    }
+
+    removeItem(id) {
+        this.store = this.store.filter( item => item.id != id);
+    }
+}
+// let store = new StoreService();
+
+// class Table extends StoreService{}
+class ListItem extends StoreService{
+    constructor(container, initialValue) {
+        super(initialValue);
+
+        this.HTMLContainer = container;
+    }
+
     add(human, place) {
-        this.store.push(human);
         const {firstName, lastName, id} = human;
 
         let listItem = this.createItem(firstName, lastName, id);
@@ -74,13 +90,13 @@ class StoreService {
             }
         }
 
+        this.addToStore(human)
     }
 
-    removeById(id) {
-        this.store = this.store.filter( item => item.id != id);
+    removeById(id) { 
         let child = this.HTMLContainer.querySelector(`[data-id ="${id}"]`)
         this.HTMLContainer.removeChild(child);
-
+        this.removeItem()
     }
 
     createItem(name, lastName, id) {
@@ -95,7 +111,7 @@ class StoreService {
 
 let humanContainer = document.getElementById('human-container');
 
-const humanList = new StoreService(humanContainer);
+const humanList = new ListItem(humanContainer);
 
 
 let btnAddStart = document.getElementById('btn-add-start');
