@@ -122,18 +122,18 @@ btnRemove.onclick = function () {
     humanList.removeById(5);
 }
 
-btnAddStart.onclick = function () {
-    let id = ++Human.count;
+// btnAddStart.onclick = function () {
+//     let id = ++Human.count;
     
-    humanList.add(
-        new Human({
-            firstName: `name: ${id}`,
-            lastName: `surname: ${id}`,
-            id
-        }),
-        'start'
-    )
-}
+//     humanList.add(
+//         new Human({
+//             firstName: `name: ${id}`,
+//             lastName: `surname: ${id}`,
+//             id
+//         }),
+//         'start'
+//     )
+// }
 
 btnAddEnd.onclick = function () {
     let id = ++Human.count;
@@ -146,4 +146,113 @@ btnAddEnd.onclick = function () {
         }),
         'end'
     )
+}
+
+const Validator = {
+    errors: {},
+    validators: {
+        isNotEmpty: {
+            validate(value) {       
+                return value !== "";
+            },
+            message: "This field should not be blank",
+            errorType: 'required'
+        },
+
+        isNumber: {
+            validate(value) {       
+                return !isNaN(value);
+            },
+            message: "This field should be a number",
+            errorType: 'number'
+        }
+    },
+    validate(config, form) {
+        if(!(form instanceof HTMLFormElement)) {
+            throw {
+                name: 'ValidationError',
+                message: 'You should pass HTML Form'
+            }
+        }
+        this.errors = {};
+
+        let elements = form.elements;
+
+        for( const [inputName, validators] of Object.entries(config)) {
+         
+
+            if(!validators?.length) {
+                throw {
+                    name: 'ValidationError',
+                    message: `No handler to validate ${inputName}`
+                }
+            }
+
+            if(!elements[inputName]) {
+                throw {
+                    name: 'ValidationError',
+                    message: `${inputName} does not exist in the ${form.name}`
+                } 
+            }
+            
+            let value = elements[inputName].value;
+         
+
+            validators.forEach(({validate, message, errorType}) => {
+                
+                if(!validate(value)) {
+                    this.errors[inputName] = {...this.errors[inputName], [errorType]: message};
+                }
+            })
+        }
+
+        return this.hasErrors();
+    },
+
+    hasErrors() {
+        return !Object.keys(this.errors).length != 0;
+    }
+}
+
+Validator.validators.maxLength = function(length) {
+    return {
+        validate(value) {       
+            return value.length <= length;
+        },
+        message: `This field should not be more then ${length}`,
+        errorType: 'maxLength'
+    }
+}
+
+// using
+const {isNotEmpty, isNumber, maxLength} = Validator.validators;
+
+// console.log(isNotEmpty, isNumber, maxLength);
+
+let formGroupConfig = {
+    "first-name": [isNotEmpty, maxLength(16)],
+    "last-name": [isNotEmpty, maxLength(20)],
+    "age": [isNotEmpty, isNumber]
+};
+
+
+// Validator.errors
+
+
+btnAddStart.onclick = function () {
+    let form = document.querySelector('#human-form');
+    const VALID = Validator.validate(formGroupConfig, form);
+    
+    if(!VALID) {
+        console.log(Validator.errors);
+        Object.entries(Validator.errors).forEach(([name, error]) => {
+            console.log(name, error);
+            let messageError = form.querySelector(`[data-for="${name}"]`);
+            form.elements[name].classList.add('error');
+            messageError.innerHTML = Object.values(error || {}).map(message => `<span>${message}</span>`).join('')
+            messageError.style.display = 'block';
+        } )
+    } else {
+        
+    }
 }
