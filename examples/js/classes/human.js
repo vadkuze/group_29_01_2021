@@ -1,4 +1,4 @@
-class Human {
+export default class Human {
     static count = 0;
 
     constructor({firstName, lastName, id}) {

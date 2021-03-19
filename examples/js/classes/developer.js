@@ -1,4 +1,4 @@
-class Developer extends Human {
+export default class Developer extends Human {
     #coder = true;
 
     constructor({position,  ...info}) {

@@ -1,4 +1,4 @@
-class Designer extends Human {
+export default class Designer extends Human {
 
     constructor({project,  ...info}) {
         super(info);

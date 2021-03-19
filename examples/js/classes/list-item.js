@@ -1,5 +1,6 @@
 import StoreService from "./../services/store.service.js"
 
+// export default class extends StoreService {}
 export default class ListItem extends StoreService{
     constructor(container, initialValue) {
         super(initialValue);

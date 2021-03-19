@@ -1,4 +1,5 @@
- const Validator = {
+
+export const Validator = {
     errors: {},
     validators: {
         isNotEmpty: {
@@ -73,6 +74,7 @@ Validator.validators.maxLength = function(length) {
         errorType: 'maxLength'
     }
 }
-let {isNotEmpty, isNumber, maxLength} = Validator.validators;
-export default Validator
-export { isNotEmpty, isNumber, maxLength} 
+
+export const isNotEmpty = Validator.validators.isNotEmpty;
+export const isNumber = Validator.validators.isNumber;
+export const maxLength = Validator.validators.maxLength;
