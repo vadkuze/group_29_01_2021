@@ -1,9 +1,11 @@
 import  ListItem from './classes/list-item.js';
+import Human from './classes/human.js'
 import { Validator } from "./library/validator.js";
 import { formGroupConfig } from "./configs/form-config.js"
 
 let humanContainer = document.getElementById('human-container');
 const humanList = new ListItem(humanContainer);
+let form = document.querySelector('#human-form');
 
 let btnAddStart = document.getElementById('btn-add-start');
 let btnAddEnd = document.querySelector('#btn-add-end');
@@ -27,7 +29,6 @@ btnAddEnd.onclick = function () {
 }
 
 btnAddStart.onclick = function () {
-    let form = document.querySelector('#human-form');
     const VALID = Validator.validate(formGroupConfig, form);
     
     if(!VALID) {
@@ -40,14 +41,44 @@ btnAddStart.onclick = function () {
             messageError.style.display = 'block';
         } )
     } else {
+
+        let formData = {};
+        [...form.elements].forEach(({name, value} )=> {
+            formData[name] = value;
+        })
+
+        console.log(formData);
         // ...
+        let id = ++Human.count;
         humanList.add(
             new Human({
-                firstName: `name: ${id}`,
-                lastName: `surname: ${id}`,
+                firstName: formData['first-name'],
+                lastName: formData['last-name'],
                 id
             }),
             'start'
         )
     }
 }
+
+form.addEventListener('input', function(e) {
+    let target = e.target;
+    
+    if(!Object.keys(formGroupConfig).includes(target.name)) return;
+
+    let messageError = form.querySelector(`[data-for="${target.name}"]`);
+    const VALID = Validator.validate({ [target.name] : formGroupConfig[target.name]}, form);
+    
+    if(VALID) {
+        target.classList.remove('error');
+        target.classList.add('success');
+        messageError.innerHTML = null;
+        messageError.style.display = 'none';
+    } else {
+        target.classList.remove('success');
+        target.classList.add('error');
+        messageError.innerHTML = Object.values(Validator.errors[target.name]).map(message => `<span>${message}</span>`).join('')
+        messageError.style.display = 'block';
+    }
+
+})

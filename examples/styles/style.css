@@ -70,6 +70,10 @@ input.error {
     border-bottom: 3px solid red;
 }
 
+input.success {
+    border-bottom: 3px solid green;
+}
+
 .message {
     display: none;
     color: white;
