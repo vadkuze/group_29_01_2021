@@ -71,17 +71,25 @@ class Snake extends Grid {
     startGame(){
         this.#_snake = this.#_createSnake(Math.floor(this.gridCount / 2), Math.floor(this.gridCount / 2), 5 );
 
-        // box food 
+        // вызвать здесь generateBoxForEat, который вставляет картинку еды в рандомной поле  
+        
+        
 
         this.speed = this.#_controlsForm.speed.value;
-         
-        // hide buttons
-
         this.#_messageBox = 'Welcome to Snake!';
+        // hide buttons
 
         this.#_processGame = setInterval(() => {
 
-            // let { cell, row } = this.#_noWallMode(this.#_snake[0])
+            // ----------------------------------
+            // вызвать здесь  метод noWallMode, который реализует возможность змейки проходить через стены  
+            // Нужно чтобы метод noWallMode работала так
+            // let {
+            //     cell,
+            //     row
+            // } = noWallMode(snake[0])
+            // ----------------------------------
+
             let { cell, row } = this.#_snake[0];
 
             switch(this.direction) {
@@ -121,7 +129,20 @@ class Snake extends Grid {
 
     }
 
-    endGame(){}
+    /* ----------------------------------
+    Дополнить метод endGame - вернуть все данные в начальное состояние
+
+    Используйте метод во всех случаях, где игра завершается
+    ---------------------------------- */
+    endGame(){
+
+
+        clearTimeout(this.#_processGame);
+
+        setTimeout(() => {
+            this.#_clear()
+        }, 1000)
+    }
 
     #_init(){
         document.addEventListener('keydown', (event) => this.#_updateDirection(event));
@@ -161,8 +182,16 @@ class Snake extends Grid {
     }
 
     #_update() {
-        // check ate 
-        //check on tail crush
+
+        // ---------------------------------------
+        // вызвать здесь метод checkOnEated, которая проверяет съела ли змейка еду,
+        // если да - убираем фрукт добавляет +1 в хвост и в score, а также генерируем новые координаты для еды
+        // ----------------------------------
+
+
+        // ----------------------------------
+        // вызвать здесь метод checkOnTailCrush, который проверяет врезалась ли голова змейки в себя же, если да - завершить игру
+        // ---------------------------------------
 
         for(const [index, snakePart] of this.#_snake.entries()) {
             let cell = this.#_findByCoords(snakePart.cell, snakePart.row);
