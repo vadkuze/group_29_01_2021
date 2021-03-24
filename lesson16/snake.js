@@ -197,9 +197,9 @@ class Snake extends Grid {
             let cell = this.#_findByCoords(snakePart.cell, snakePart.row);
             console.log(snakePart);
             if(index == 0) {
-                cell.classList.add('snake-head');
+                cell.classList.add('snake-head', 'snake');
             } else {
-                cell.classList.add('snake-body');
+                cell.classList.add('snake-body', 'snake');
             }
         }
     }
