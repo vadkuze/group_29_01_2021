@@ -87,7 +87,7 @@ class Snake extends Grid {
             // let {
             //     cell,
             //     row
-            // } = noWallMode(snake[0])
+            // } = noWallMode()
             // ----------------------------------
 
             let { cell, row } = this.#_snake[0];
