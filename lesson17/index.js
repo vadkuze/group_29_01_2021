@@ -68,7 +68,7 @@ function resolvedPromise() {
     return Promise.resolve('resolved');
 }
 
-// resolvedPromise().then(console.log);
+resolvedPromise().then(console.log);
 
 
 let multiPromise = Promise.allSettled([
