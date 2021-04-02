@@ -4,10 +4,16 @@ let photoHistory = [];
 
 let photContainer = document.querySelector('.photo-container');
 let request = document.querySelector('#request');
+let send = document.querySelector('#send');
 let add = document.querySelector('#add');
 let photoInput = document.querySelector('#photoInput');
 
 request.addEventListener('click', main);
+send.addEventListener('click', function() {
+    let id = photoInput.value;
+    sendData(id);
+});
+
 photoInput.addEventListener('keyup', (event) => {
     if (event.key === "Enter") {
         main();
@@ -69,5 +75,19 @@ function loadImage(data) {
             data
         });
         image.onerror = () => reject();
+    })
+}
+
+function sendData(id) {
+    let tastDataForSend = {
+        title: "Test Data",
+    };
+    
+    return fetch(`${url}${photoUrl}/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(tastDataForSend)
     })
 }
