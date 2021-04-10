@@ -1,5 +1,5 @@
-const url = 'https://jsonplaceholder.typicode.com/';
-const photoUrl = 'photos';
+const url = 'https://fakestoreapi.com/';
+const productsUrl = 'products';
 let photoHistory = [];
 
 let photContainer = document.querySelector('.photo-container');
@@ -9,7 +9,7 @@ let add = document.querySelector('#add');
 let photoInput = document.querySelector('#photoInput');
 
 request.addEventListener('click', main);
-send.addEventListener('click', function() {
+send.addEventListener('click', function () {
     let id = photoInput.value;
     sendData(id);
 });
@@ -27,6 +27,7 @@ function main() {
 
     let id = photoInput.value;
     photoInput.disabled = true;
+
 
     fetchImageById(id)
         .then(({
@@ -48,11 +49,11 @@ function main() {
 
 function fetchImageById(id) {
     if (id) {
-        return fetch(`${url}${photoUrl}/${id}`)
+        return fetch(`${url}${productsUrl}/${id}`)
             .then(response => {
-                if(response.status == 404) {
+                if (response.status == 404) {
                     throw new Error('Image not found');
-                } else if(response.status != 200) {
+                } else if (response.status != 200) {
                     throw new Error('HttpError');
                 }
 
@@ -61,29 +62,32 @@ function fetchImageById(id) {
             .then(data => {
                 return loadImage(data);
             })
-    } 
+    }
 
     return Promise.reject(new Error('Enter ID please'));
 }
 
-function loadImage(data) {
-    return new Promise(function (resolve, reject) {
-        let image = new Image();
-        image.src = data.url;
-        image.onload = () => resolve({
-            image,
-            data
-        });
-        image.onerror = () => reject();
-    })
+async function loadImage(data) {
+    let image = new Image();
+    image.src = data.image + '1';
+    try {
+        await image.decode();
+    } catch (err) {
+        console.log(err);
+        throw err;
+    }
+    return {
+        image,
+        data
+    }
 }
 
 function sendData(id) {
     let tastDataForSend = {
         title: "Test Data",
     };
-    
-    return fetch(`${url}${photoUrl}/${id}`, {
+
+    return fetch(`${url}${productsUrl}/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
