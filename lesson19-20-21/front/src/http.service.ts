@@ -1,7 +1,9 @@
-import env from './environment.js';
+import env from './environment';
 
 export default class {
-    constructor(path) {
+    url: string;
+
+    constructor(path: string) {
         this.url = env.basePath + path;
     }
 
@@ -9,11 +11,11 @@ export default class {
         return fetch(this.url);
     }
 
-    get(id) {
+    get(id: string) {
         return fetch(this.url + id)
     }
 
-    add(data) {
+    add(data: any) {
         return fetch(this.url, {
             method: 'POST',
             body: JSON.stringify(data),
@@ -23,17 +25,17 @@ export default class {
         })
     }
 
-    update(id, data) {
+    update(id: string, data: any) {
         return fetch(this.url + id, {
             method: 'PUT',
-            data: JSON.stringify(data),
+            body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
             }
         })
     }
 
-    delete(id) {
+    delete(id: string) {
         return fetch(this.url + id, {
             method: 'DELETE'
         })

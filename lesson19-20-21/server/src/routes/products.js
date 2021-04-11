@@ -20,9 +20,8 @@ router.get('/', (req, res) => {
     const {
         productId
     } = req.params;
-    console.log(productId);
 
-    let product = db.get('products').find({id: +productId}).value();
+    let product = db.get('products').find({id: productId}).value();
     if (!product) {
         return res.status(404).json({status: 'failed', error: 'Not Found', message: `Product with ${productId} ID doesn't exist in DB`});
     }
@@ -41,9 +40,20 @@ router.get('/', (req, res) => {
        .push({...product, id})
        .write()
 
-    console.log(req.body, id);
+    res.status(200).json({ status: 'success'});
 
-    res.status(200).json({ status: 'success'})
+}).delete('/:productId', (req, res) => {
+    const { productId } = req.params;
+    
+    const productsForRemoving = db.get('products').remove({id: productId});
+   
+    if(productsForRemoving.value().length) {
+        productsForRemoving.write();
+        return res.status(200).json({ status: 'success'});
+    }
+    return res.status(404).json({status: 'failed', error: 'Not Found', message: `Product with ${productId} ID doesn't exist in DB`});
+
 })
+
 
 export default router;
