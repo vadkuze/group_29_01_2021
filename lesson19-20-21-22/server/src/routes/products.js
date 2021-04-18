@@ -11,10 +11,7 @@ router.get('/', (req, res) => {
     const products = db.get('products');
 
     // send data
-    return res.status(200).json({
-        status: 'success',
-        data: products
-    });
+    return res.status(404).json(products);
 
 }).get('/:productId', (req, res) => {
     const {
@@ -26,10 +23,7 @@ router.get('/', (req, res) => {
         return res.status(404).json({status: 'failed', error: 'Not Found', message: `Product with ${productId} ID doesn't exist in DB`});
     }
 
-    return res.status(200).json({
-        status: 'success',
-        data: product
-    }); 
+    return res.status(200).json(product); 
 })
 .post('/', (req, res) => {
     let product = req.body;
