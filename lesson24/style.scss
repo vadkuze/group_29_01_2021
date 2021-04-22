@@ -1,0 +1,19 @@
+@import "bulma/bulma";
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.panel {
+    width: 70vw;
+}
+
+progress.progress {
+    margin: 0 !important;
+    margin-bottom: 5px !important;
+}
+
+.search-section{
+    padding: 10px;
+}
