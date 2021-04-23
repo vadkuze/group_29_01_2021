@@ -1,1 +1,1 @@
-export const OAUTH_TOKEN = "token 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";
+export const OAUTH_TOKEN = "token ВАЩ ТОКЕН";

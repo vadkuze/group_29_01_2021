@@ -1,6 +1,7 @@
 @import "bulma/bulma";
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
 }
@@ -14,6 +15,14 @@ progress.progress {
     margin-bottom: 5px !important;
 }
 
-.search-section{
+.search-section {
     padding: 10px;
+}
+
+.items .panel-block span {
+    display: inline-block;
+}
+
+.panel-icon {
+    margin-right: 10px;
 }
