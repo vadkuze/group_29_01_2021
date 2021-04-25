@@ -1,0 +1,22 @@
+<div class="content container">
+    <ol>
+        <li *ngFor="let country of countries" (click) = "deleteCountry(country.country)">
+            <span>{{ country.country }}</span>
+            <span> - </span>
+            <b>{{ country.capital }}</b>
+        </li>
+    </ol>
+    
+    
+    <form>
+        <div class="field">
+            <input #country class="input" type="text"  name="country" placeholder="Country">
+        </div>
+
+        <div class="field">
+            <input #capital class="input" type="text"  name="capital" placeholder="Capital">
+        </div>
+
+        <button (click) = "addCountry(country.value, capital.value)" class="button is-primary">Add</button>
+    </form>
+</div>
