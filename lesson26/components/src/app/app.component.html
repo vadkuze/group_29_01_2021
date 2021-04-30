@@ -1,0 +1,22 @@
+
+<ng-container *ngIf = "show">
+  <app-counter (onChangeValue) = "onChangeValue($event)"></app-counter>
+  <app-counter (onChangeValue) = "onChangeValue($event)" [counterName]= "'Counter1'" [initialValue] = "5" ></app-counter>
+  <app-counter (onChangeValue) = "onChangeValue($event)" [counterName]= "'Counter2'" [initialValue] = "10" ></app-counter>
+</ng-container>
+
+<br>
+<br>
+<br>
+
+<button #button (click) = "toggleCounters()">Toggle Counter</button>
+<button (click) = "incrementAll()">Increase all counters</button>
+
+<p>________________________________________________________________________</p>
+
+
+<app-list>
+  <app-item *ngFor = "let item of ['Item 1', 'Item 2', 'Item 3']" [itemName] = 'item'>
+    {{item}}
+  </app-item>
+</app-list>
