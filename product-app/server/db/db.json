@@ -1,0 +1,142 @@
+{
+  "products": [
+    {
+      "id": "3",
+      "title": "Mens Cotton Jacket",
+      "price": 55.99,
+      "description": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
+      "category": "men clothing",
+      "image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Mens Casual Slim Fit",
+      "price": 15.99,
+      "description": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
+      "category": "men clothing",
+      "image": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
+    },
+    {
+      "id": "6",
+      "title": "Solid Gold Petite Micropave ",
+      "price": 168,
+      "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+      "category": "jewelery",
+      "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg"
+    },
+    {
+      "id": "7",
+      "title": "White Gold Plated Princess",
+      "price": 9.99,
+      "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+      "category": "jewelery",
+      "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
+    },
+    {
+      "id": "8",
+      "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+      "price": 10.99,
+      "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+      "category": "jewelery",
+      "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg"
+    },
+    {
+      "id": "9",
+      "title": "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
+      "price": 64,
+      "description": "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system",
+      "category": "electronics",
+      "image": "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg"
+    },
+    {
+      "title": "Test Product",
+      "price": 100,
+      "description": "Test Description",
+      "category": "new",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "id": "578bdc7f-fd03-461c-a222-65d9f436ec3b"
+    },
+    {
+      "title": "Test Product",
+      "price": 100,
+      "description": "Test Description",
+      "category": "new",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "id": "cc8a447e-4941-4d0d-ad46-19bdd4077973"
+    },
+    {
+      "title": "Test Product",
+      "price": 100,
+      "description": "Test Description",
+      "category": "new",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "id": "c26b752b-7538-49dc-84d6-3a33789d2ea9"
+    },
+    {
+      "title": "Test Product",
+      "price": 100,
+      "description": "Test Description",
+      "category": "new",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "id": "52da3f99-9f85-4525-a993-952d6324270c"
+    },
+    {
+      "title": "Test Product",
+      "price": 100,
+      "description": "Test Description",
+      "category": "new",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "id": "24f56f15-52ee-441c-921a-f5f35a94042c"
+    },
+    {
+      "title": "Test Product",
+      "price": 100,
+      "description": "Test Description",
+      "category": "new",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "id": "8a120a74-3fa7-441d-aaf7-cdef1ca62ade"
+    },
+    {
+      "title": "Test Product",
+      "price": 100,
+      "description": "Test Description",
+      "category": "new",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "id": "53cd88b3-601b-46b3-9945-85110103a6bb"
+    },
+    {
+      "title": "Test Product",
+      "price": 100,
+      "description": "Test Description",
+      "category": "new",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "id": "76a1c317-9ff4-4dd2-9755-63ba3cb24cd8"
+    },
+    {
+      "title": "Test Product",
+      "price": 100,
+      "description": "Test Description",
+      "category": "new",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "id": "7af9c7ba-31a4-449f-96d2-238a187680ca"
+    },
+    {
+      "title": "Test Product",
+      "price": 100,
+      "description": "Test Description",
+      "category": "new",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "id": "6992fb10-e2e1-4a29-92a5-de81b47fb965"
+    }
+  ],
+  "users": [
+    {
+      "email": "mumivab@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "name": "Est et aliqua Natu",
+      "terms": true,
+      "id": "d932ef4d-a2a6-41dc-a006-72bdf7dda248"
+    }
+  ],
+  "count": 0
+}

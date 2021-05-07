@@ -1,0 +1,63 @@
+<form action="" [formGroup] = "signUpForm" (ngSubmit)="sendFormData()">
+  <div class="field">
+    <label class="label">Name</label>
+    <div class="control">
+      <input formControlName="name" class="input" type="text" placeholder="Text input" [ngClass] = "toggleControlClass('name')"  >
+    </div>
+    <p class="help is-danger" *ngIf="signUpForm.get('name').invalid && !signUpForm.get('name').untouched">
+        {{ 
+            signUpForm.get('name').getError('minlength') ? 
+            "You texted " + signUpForm.get('name').errors.minlength.actualLength + " letters when min length is " + signUpForm.get('name').errors.minlength.requiredLength + " letters" : 
+            signUpForm.get('name').getError('maxlength')? 
+            "You texted " + signUpForm.get('name').errors?.maxlength.actualLength + " letters when max length is " + signUpForm.get('name').errors?.maxlength.requiredLength + " letters" : "This field is required"
+        }}
+    </p>
+  </div>
+
+
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control has-icons-left has-icons-right">
+      <input formControlName = "email" [ngClass] = "toggleControlClass('email')"  class="input" type="email" placeholder="Email input" value="hello@">
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-exclamation-triangle"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Password</label>
+    <div class="control has-icons-left has-icons-right">
+      <input formControlName="password" class="input" [ngClass] = "toggleControlClass('password')" type="password" placeholder="Email your password">
+      <span class="icon is-small is-left">
+        <!-- <i class="fas fa-envelope"></i> -->
+      </span>
+      <span class="icon is-small is-right">
+        <!-- <i class="fas fa-exclamation-triangle"></i> -->
+      </span>
+    </div>
+  </div>
+  <!-- <p class="help is-danger">This email is invalid</p> -->
+
+
+  <div class="field">
+    <div class="control">
+      <label class="checkbox">
+        <input formControlName="terms" type="checkbox">
+        I agree to the <a href="#">terms and conditions</a>
+      </label>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link">Submit</button>
+    </div>
+    <div class="control">
+      <button class="button is-link is-light" (click)="reset()">Reset</button>
+    </div>
+  </div>
+</form>
