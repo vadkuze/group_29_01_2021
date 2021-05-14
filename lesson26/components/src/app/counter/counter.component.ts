@@ -1,29 +1,33 @@
 import { EventEmitter, OnDestroy, Output } from '@angular/core';
 import { OnChanges } from '@angular/core';
 import { Component, Input, OnInit } from '@angular/core';
+import { CounterService } from '../counter.service';
 import { ICounterEvent } from '../shared/models/counter-event.interface';
 
 @Component({
   selector: 'app-counter',
   templateUrl: './counter.component.html',
-  styleUrls: ['./counter.component.scss']
+  styleUrls: ['./counter.component.scss'],
+  providers: [CounterService]
 })
 export class CounterComponent implements OnInit, OnChanges, OnDestroy {
   @Input() public counterName: string = 'default';
-  @Input('initialValue') public counterValue: number = 0;
+  @Input('initialValue') public readonly counterValue: number = 0;
 
   @Output() public onChangeValue: EventEmitter<ICounterEvent> = new EventEmitter();
   
   private readonly _DETECT_VALUE = 10;
 
-  constructor() { }
+  constructor(public counterService: CounterService) { }
 
   public ngOnInit(): void {
-   console.log('ngOnInit',this.counterName);
+   console.log('ngOnInit',this.counterService);
+   this.counterService.counterValue = this.counterValue;
   }
 
   public ngOnChanges(): void {
-    console.log('ngOnChanges',this.counterValue)
+    console.log('ngOnChanges',this.counterValue);
+   this.counterService.counterValue = this.counterValue;
   }
 
   public ngOnDestroy(): void {
@@ -32,14 +36,14 @@ export class CounterComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   public increment(): void {
-    this.counterValue++;
+    this.counterService.counterValue++;
     this.listeningValueOnTen();
   }
 
   public listeningValueOnTen() {
-    if(this.counterValue >= this._DETECT_VALUE) {
+    if(this.counterService.counterValue >= this._DETECT_VALUE) {
       this.onChangeValue.emit({
-        value: this.counterValue,
+        value: this.counterService.counterValue,
         name: this.counterName
       })
     }

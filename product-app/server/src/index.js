@@ -11,8 +11,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use('/api/products', routes.products)
-app.use('/api/users', routes.users)
+app.use('/api/products', routes.products);
+app.use('/api/users', routes.users);
+app.use('/api/login', routes.auth);
 
 app.listen(PORT, () =>{
     console.log(`Server is working on ${PORT} port`);

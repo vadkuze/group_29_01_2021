@@ -19,7 +19,6 @@ export class SignUpPageComponent implements OnInit {
       password: ['', [Validators.required]],
       name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(255)]],
       terms: ['', [Validators.requiredTrue]],
-    
     })
   }
 
@@ -30,8 +29,8 @@ export class SignUpPageComponent implements OnInit {
     }
 
     this._userService
-    .add(this.signUpForm.value)
-    .subscribe(console.log)
+        .add(this.signUpForm.value)
+        .subscribe(console.log)
 
   }
 

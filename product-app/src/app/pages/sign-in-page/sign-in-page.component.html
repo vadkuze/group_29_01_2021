@@ -1,1 +1,35 @@
-<p>sign-in-page works!</p>
+<form action="" [formGroup] = "signInForm" (ngSubmit)="login()">
+  
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control has-icons-left has-icons-right">
+        <input formControlName = "login" [ngClass] = "toggleControlClass('login')"  class="input" type="email" placeholder="Email input" value="hello@">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-exclamation-triangle"></i>
+        </span>
+      </div>
+    </div>
+  
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control has-icons-left has-icons-right">
+        <input formControlName="password" class="input" [ngClass] = "toggleControlClass('password')" type="password" placeholder="Email your password">
+        <span class="icon is-small is-left">
+          <!-- <i class="fas fa-envelope"></i> -->
+        </span>
+        <span class="icon is-small is-right">
+          <!-- <i class="fas fa-exclamation-triangle"></i> -->
+        </span>
+      </div>
+    </div>
+    <!-- <p class="help is-danger">This email is invalid</p> -->
+  
+    <div class="field is-grouped">
+      <div class="control">
+        <button [disabled]="signInForm.invalid" class="button is-link">Login</button>
+      </div>
+    </div>
+  </form>
