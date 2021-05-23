@@ -5,7 +5,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 @Component({
   selector: 'app-sign-in-page',
   templateUrl: './sign-in-page.component.html',
-  styleUrls: ['./sign-in-page.component.scss']
+  styleUrls: ['./sign-in-page.component.scss'],
+  providers: [AuthService]
 })
 export class SignInPageComponent implements OnInit {
   public signInForm: FormGroup;
